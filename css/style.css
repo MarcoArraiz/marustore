@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap');
+*{
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+
+
+}
+
+ ul,
+ol{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+/*---Header---*/
+
+header nav{
+    background-color: rgb(61, 109, 180);
+    
+}
+
+/* header nav ul{
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    
+} */
+
+
+main {
+    background-color: white;
+    background-size: cover;
+}
+
+/* BOTONES */
+.btn {
+    background-color: rgb(61, 109, 180);
+}
+
+/* ---Portada--- */
+
+.portada{
+    height: 40vh;
+    background-image: url(../img/abstract-background-with-red-lines.jpg);
+    background-position: center;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.portada h2{
+    background-color: rgba(61, 109, 180, 0.568);
+    padding: 15px;
+    border-radius: 20px;
+}
+
+/* TITULO SECCIONES */
+
+.titulo-secciones{
+    background-color:rgb(61, 109, 180);
+    text-align: center;
+    border-radius: 0px;
+    padding: 15px;
+}
+
+.slider-productos {
+    padding: 15px;
+    display: flex;
+    gap: 50px;
+    overflow: auto;
+    
+
+}
+
+/* Contacto */
+
+.formulario-contacto{
+    background-color: white;
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 7px 13px 37px black;
+}
+
+.header-formulario {
+    width: 100%;
+    background-color: rgb(61, 109, 180);
+    overflow: hidden;
+    color: white;
+}
+
+.header-span {
+    font-size: 100px;
+    display: block;
+    text-align: center;
+    padding: 2.5rem;
+}
+
+.contacto {
+    padding: .8rem;
+    overflow: hidden;
+    color: gray;
+}
+
+.contacto label, .contacto input, .contacto textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.contacto label {
+    font-weight: 700;
+}
+
+.contacto input:not([type='submit']), .contacto textarea {
+    border: none;
+    border-bottom: 2px solid rgb(61, 109, 180);
+    margin-bottom: 10px;
+    font-size: 20px;
+    outline: none;
+    color: gray;
+}
+
+.contacto textarea {
+    min-height: 100px;
+}
+
+input[type='submit'] {
+    padding: 10px;
+    border: none;
+    background-color: rgb(61, 109, 180);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+
+}
+
+.contenedor-footer{
+    background-color: rgb(36, 34, 34);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    bottom: 0;
+    width: 100%;
+}
+
+.contenedor-footer-contacto{
+    background-color: rgb(36, 34, 34);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+}
