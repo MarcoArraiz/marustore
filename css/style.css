@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0%;
     box-sizing: border-box;
@@ -10,7 +11,7 @@
 
 /*---Header---*/
 
-header{
+header {
     background-color: rgb(61, 109, 180);
 }
 
@@ -21,8 +22,8 @@ main {
 
 /* TITULO SECCIONES */
 
-.titulo-secciones{
-    background-color:black;
+.titulo-secciones {
+    background-color: black;
     text-align: center;
     border-radius: 0px;
     padding: 15px;
@@ -33,13 +34,13 @@ main {
     display: flex;
     gap: 50px;
     overflow: auto;
-    
+
 
 }
 
 /* Contacto */
 
-.formulario-contacto{
+.formulario-contacto {
     background-color: white;
     width: 400px;
     position: absolute;
@@ -69,7 +70,9 @@ main {
     color: gray;
 }
 
-.contacto label, .contacto input, .contacto textarea {
+.contacto label,
+.contacto input,
+.contacto textarea {
     display: block;
     width: 100%;
     margin-bottom: 8px;
@@ -79,7 +82,8 @@ main {
     font-weight: 700;
 }
 
-.contacto input:not([type='submit']), .contacto textarea {
+.contacto input:not([type='submit']),
+.contacto textarea {
     border: none;
     border-bottom: 2px solid rgb(36, 143, 41);
     margin-bottom: 10px;
@@ -102,23 +106,9 @@ input[type='submit'] {
 
 }
 
-.contenedor-footer{
-    background-color: rgb(36, 34, 34);
-    color: white;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    bottom: 0;
-    width: 100%;
-    margin-bottom: 20px;
-}
+/* Poner el footer abajo en la pagina de contacto */
 
-.contenedor-footer-contacto{
-    background-color: rgb(36, 34, 34);
-    color: white;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
+.contenedor-footer-contacto {
     position: absolute;
     bottom: 0%;
     width: 100%;
@@ -147,6 +137,5 @@ input[type='submit'] {
 }
 
 .tarjeta-producto-usb {
-    height:620px;
+    height: 620px;
 }
-
