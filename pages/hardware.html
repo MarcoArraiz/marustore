@@ -17,17 +17,18 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-                <a class="navbar-brand" href="./index.html"><h1>MaruStore</h1></a>
-                <button class="navbar-toggler position-relative" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><h1>MaruStore</h1></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="./index.html">Inicio</a>
+                            <a class="nav-link" href="../index.html">Inicio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="./hardware.html">Hardware</a>
@@ -42,31 +43,54 @@
                             <a class="nav-link" href="./contacto.html">Contacto</a>
                         </li>
                         
+                        
                     </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    </form>
                 </div>
             </div>
         </nav>
     </header>
 
     <main>
-        <section class="portada">
-            <div>
-                <h2>Maru Studio & Store</h2>
+        <section class="container-fluyd mt-5">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../img/banner/baner-fusilao-1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../img/banner/baner-fusilao-2.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../img/banner/baner-fusilao-3.jpg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="container">
+        <section class="container-fluid">
 
-            <h2 class="titulo-secciones mt-5">Ofertas Del Dia</h2>
+            <h2 class="titulo-secciones mt-2 text-light bg-dark">Tarjetas Graficas</h2>
 
             <div class="row">
                 <div class="col-md-3">
                     <div class="card mt-2 shadow p-3 mb-5 bg-body rounded">
-                        <img src="../img/ofertas-del-dia/dell-latitude-5420.png" class="card-img-top" alt="...">
+                        <img src="../img/gpu/asus-tuf-rtx4090.png" class="card-img-top" alt="tarjeta grafica asus-tuf-rtx4090">
                         <div class="card-body">
-                            <h5 class="card-title">Dell Latitude 5420</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
+                            <h3 class="card-title">Asus Tuf RTX 4090</h3>
+                            <div class="description-container">
+                                <dl>
+                                    <dt>Memoria</dt>
+                                    <dd>24 GB GDDR6X</dd>
+                                    <dt>Frec. core (base / boost / OC)</dt>
+                                    <dd>2235 / 2520 / 2595 MHz</dd>
+                                    <dt>Frec. memorias</dt>
+                                    <dd>1325 MHz</dd>
+                                </dl>
+                            </div>
                             <a href="#" class="btn btn-primary">Ver Producto</a>
                         </div>
                     </div>
@@ -74,11 +98,18 @@
 
                 <div class="col-md-3">
                     <div class="card mt-2 shadow p-3 mb-5 bg-body rounded">
-                        <img src="../img/ofertas-del-dia/viewsonic-vx3276-2k-mhd.png" class="card-img-top" alt="...">
+                        <img src="../img/gpu/evga-rtx-3080ti-xc3.png" class="card-img-top" alt="EVGA RTX 3080Ti XC3">
                         <div class="card-body">
-                            <h5 class="card-title">Viewsonic VX3276-2K</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
+                            <h3 class="card-title">EVGA RTX 3080TI XC3</h3>
+                            <div class="description-container">
+                                    <dt>Memoria</dt>
+                                    <dd>12 GB GDDR6X</dd>
+                                    <dt>Frec. core (base / boost / OC)</dt>
+                                    <dd>365 / 1665 / 1800 MHz</dd>
+                                    <dt>Frec. memorias</dt>
+                                    <dd>1188 MHz</dd>
+                                </dl>
+                            </div>
                             <a href="#" class="btn btn-primary">Ver Producto</a>
                         </div>
                     </div>
@@ -86,11 +117,19 @@
 
                 <div class="col-md-3">
                     <div class="card mt-2 shadow p-3 mb-5 bg-body rounded">
-                        <img src="../img/ofertas-del-dia/notebook-lenovo-e14.png" class="card-img-top" alt="...">
+                        <img src="../img/gpu/gigabyte-aorus-radeon-rx-6900xt-master.png" class="card-img-top" alt="Gigabyte Aorus Radeon RX 6900xt Master">
                         <div class="card-body">
-                            <h5 class="card-title">Lenovo E14</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
+                            <h3 class="card-title">Aorus RX6900XT Master</h3>
+                            <div class="description-container">
+                                <dl>
+                                    <dt>Memoria</dt>
+                                    <dd>16 GB GDDR6</dd>
+                                    <dt>Frec. core (base / boost / OC)</dt>
+                                    <dd>1925 / 2250 / 2365 MHz</dd>
+                                    <dt>Frec. memorias</dt>
+                                    <dd>2000 MHz</dd>
+                                </dl>
+                            </div>
                             <a href="#" class="btn btn-primary">Ver Producto</a>
                         </div>
                     </div>
@@ -98,11 +137,19 @@
 
                 <div class="col-md-3">
                     <div class="card mt-2 shadow p-3 mb-5 bg-body rounded">
-                        <img src="../img/ofertas-del-dia/notebook-lenovo-v14.png" class="card-img-top" alt="...">
+                        <img src="../img/gpu/gigabyte-rtx-3080ti-vision-oc.png" class="card-img-top" alt="gigabyte rtx 3080ti vision oc">
                         <div class="card-body">
-                            <h5 class="card-title">Lenovo V14</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
+                            <h3 class="card-title">RTX 3080Ti Vision</h3>
+                            <div class="description-container">
+                                <dl>
+                                    <dt>Memoria</dt>
+                                    <dd>12 GB GDDR6</dd>
+                                    <dt>Frec. core (base / boost / OC)</dt>
+                                    <dd>1365 / 1665 / 1710 MHz</dd>
+                                    <dt>Frec. memorias</dt>
+                                    <dd>2000 MHz</dd>
+                                </dl>
+                            </div>
                             <a href="#" class="btn btn-primary">Ver Producto</a>
                         </div>
                     </div>
@@ -111,18 +158,26 @@
 
         </section>
 
-        <section class="container">
+        <section class="container-fluyd">
 
-            <h2 class="titulo-secciones mt-5 ">Lo Mas Visto</h2>
+            <h2 class="titulo-secciones mt-2 text-light bg-dark">Procesadores</h2>
 
             <div class="row">
                 <div class="col-md-3">
                     <div class="card mt-2 shadow p-3 mb-5 bg-body rounded">
-                        <img src="../img/lo-mas-visto/amd-ryzen-5-5600x.png" class="card-img-top" alt="...">
+                        <img src="../img/procesadores/amd-a12-9800.png" class="card-img-top" alt="procesador amd a12 9800">
                         <div class="card-body">
-                            <h5 class="card-title">AMD Ryzen 5 5600X</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
+                            <h3 class="card-title">AMD A12 9800</h3>
+                            <div class="description-container">
+                                <dl>
+                                    <dt>frecuencia</dt>
+                                    <dd>3800 - 4200 MHz</dd>
+                                    <dt>Núcleos / hilos</dt>
+                                    <dd>4 núcleos / 4 hilos</dd>
+                                    <dt>Socket</dt>
+                                    <dd>AM4</dd>
+                                </dl>
+                            </div>
                             <a href="#" class="btn btn-primary">Ver Producto</a>
                         </div>
                     </div>
@@ -130,11 +185,19 @@
 
                 <div class="col-md-3">
                     <div class="card mt-2 shadow p-3 mb-5 bg-body rounded">
-                        <img src="../img/lo-mas-visto/apple-iphone-11-64gb-black.png" class="card-img-top" alt="...">
+                        <img src="../img/procesadores/amd-ryzen-3-2200g.png" class="card-img-top" alt=" AMD ryzen 3 2200g">
                         <div class="card-body">
-                            <h5 class="card-title">Iphone 11 64 GB Black</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
+                            <h3 class="card-title">AMD Ryzen 3 2200G</h3>
+                            <div class="description-container">
+                                <dl>
+                                    <dt>frecuencia</dt>
+                                    <dd>3500 - 3700 MHz</dd>
+                                    <dt>Núcleos / hilos</dt>
+                                    <dd>4 núcleos / 4 hilos</dd>
+                                    <dt>Socket</dt>
+                                    <dd>AM4</dd>
+                                </dl>
+                            </div>
                             <a href="#" class="btn btn-primary">Ver Producto</a>
                         </div>
                     </div>
@@ -142,11 +205,19 @@
 
                 <div class="col-md-3">
                     <div class="card mt-2 shadow p-3 mb-5 bg-body rounded">
-                        <img src="../img/lo-mas-visto/microsoft-xbox-series-s.png" class="card-img-top" alt="...">
+                        <img src="../img/procesadores/amd-ryzen-5-5600x.png" class="card-img-top" alt="AMD Ryzen 5 5600X">
                         <div class="card-body">
-                            <h5 class="card-title">Xbox Series S</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
+                            <h3 class="card-title">Ryzen 5 5600X</h3>
+                            <div class="description-container">
+                                <dl>
+                                    <dt>frecuencia</dt>
+                                    <dd>3700 - 4600 MHz</dd>
+                                    <dt>Núcleos / hilos</dt>
+                                    <dd>6 núcleos / 12 hilos</dd>
+                                    <dt>Socket</dt>
+                                    <dd>AM4</dd>
+                                </dl>
+                            </div>
                             <a href="#" class="btn btn-primary">Ver Producto</a>
                         </div>
                     </div>
@@ -154,11 +225,19 @@
 
                 <div class="col-md-3">
                     <div class="card mt-2 shadow p-3 mb-5 bg-body rounded">
-                        <img src="../img/lo-mas-visto/sony-ps5-glacier-white.png" class="card-img-top" alt="...">
+                        <img src="../img/procesadores/intel-core-i3-9100.png" class="card-img-top" alt="Intel core i3 9100 procesador">
                         <div class="card-body">
-                            <h5 class="card-title">Playstation 5 Digital</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
+                            <h3 class="card-title">Intel Core i3 9100</h3>
+                            <div class="description-container">
+                                <dl>
+                                    <dt>frecuencia</dt>
+                                    <dd>3600 - 4200 MHz</dd>
+                                    <dt>Núcleos / hilos</dt>
+                                    <dd>4 núcleos / 4 hilos</dd>
+                                    <dt>Socket</dt>
+                                    <dd>LGA 1151 (8va / 9na gen)</dd>
+                                </dl>
+                            </div>
                             <a href="#" class="btn btn-primary">Ver Producto</a>
                         </div>
                     </div>
@@ -168,7 +247,7 @@
         </section>
     </main>
     <footer>
-        <div class="contenedor-footer mt-5">
+        <div class="contenedor-footer mt-5 text-light bg-dark">
 
             <div class="acerca">
                 <h3>Acerca de MaruStore</h3>
