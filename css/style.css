@@ -40,7 +40,7 @@ main {
 
 /* Contacto */
 
-.formulario-contacto {
+/* .formulario-contacto {
     background-color: white;
     width: 400px;
     position: absolute;
@@ -102,21 +102,19 @@ input[type='submit'] {
     background-color: rgb(65, 150, 69);
     color: white;
     font-size: 20px;
-    cursor: pointer;
-
-}
+    cursor: pointer; 
+} */
 
 /* Poner el footer abajo en la pagina de contacto */
 
 .contenedor-footer-contacto {
     position: absolute;
-    bottom: 0%;
     width: 100%;
 }
 
 /* Tarjetas de productos */
 
-.tarjeta-producto-gpu {
+/* .tarjeta-producto-gpu {
     height: 620px;
 }
 
@@ -138,4 +136,4 @@ input[type='submit'] {
 
 .tarjeta-producto-usb {
     height: 620px;
-}
+} */
