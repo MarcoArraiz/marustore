@@ -19,30 +19,6 @@ main {
     background-size: cover;
 }
 
-BOTONES */
-/* .btn {
-    color: white;
-} */
-
-/* ---Portada--- */
-
-/* .portada{
-    height: 40vh;
-    background-image: url(../img/abstract-background-with-red-lines.jpg);
-    background-position: center;
-    background-size: cover;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
-.portada h2{
-    background-color: black;
-    padding: 15px;
-    border-radius: 20px;
-}
-
 /* TITULO SECCIONES */
 
 .titulo-secciones{
@@ -147,3 +123,30 @@ input[type='submit'] {
     bottom: 0%;
     width: 100%;
 }
+
+/* Tarjetas de productos */
+
+.tarjeta-producto-gpu {
+    height: 620px;
+}
+
+.tarjeta-producto-procesador {
+    height: 585px;
+}
+
+.tarjeta-producto-mouse {
+    height: 585px;
+}
+
+.tarjeta-producto-teclado {
+    height: 642px;
+}
+
+.tarjeta-producto-hdd {
+    height: 620px;
+}
+
+.tarjeta-producto-usb {
+    height:620px;
+}
+
