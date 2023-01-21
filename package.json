@@ -1,0 +1,28 @@
+{
+  "name": "marustore",
+  "version": "1.0.0",
+  "description": "Cotizador, Comparador de Precios en tiendas Chilenas, para que siempre tengas los mejores precios a tu disposicion",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcoArraiz/marustore.git"
+  },
+  "keywords": [
+    "Cotizador",
+    "Comparador",
+    "Precios",
+    "Componentes",
+    "Pc",
+    "Hardware",
+    "Computacion"
+  ],
+  "author": "Marco Arraiz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcoArraiz/marustore/issues"
+  },
+  "homepage": "https://github.com/MarcoArraiz/marustore#readme"
+}
