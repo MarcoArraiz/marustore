@@ -4,7 +4,8 @@
   "description": "Cotizador, Comparador de Precios en tiendas Chilenas, para que siempre tengas los mejores precios a tu disposicion",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./scss/main.scss ./css/style.css"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,9 @@
   "bugs": {
     "url": "https://github.com/MarcoArraiz/marustore/issues"
   },
-  "homepage": "https://github.com/MarcoArraiz/marustore#readme"
+  "homepage": "https://github.com/MarcoArraiz/marustore#readme",
+  "dependencies": {
+    "aos": "^2.3.4",
+    "bootstrap": "^5.3.0-alpha1"
+  }
 }
