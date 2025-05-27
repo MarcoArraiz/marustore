@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categoría de Productos - Digiplot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/random/1600x900/?technology,computer');
+            background-size: cover;
+            background-position: center;
+        }
+        .form-input, .form-select {
+            border-radius: 0.375rem; /* rounded-md */
+            border-width: 1px;
+            border-color: #D1D5DB; /* gray-300 */
+            padding: 0.5rem 0.75rem;
+        }
+        .form-input:focus, .form-select:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            border-color: #2563EB; /* blue-600 */
+            box-shadow: 0 0 0 2px #BFDBFE; /* ring-2 ring-blue-300 */
+        }
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem; /* rounded-md */
+            font-weight: 600; /* semibold */
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary {
+            background-color: #2563EB; /* blue-600 */
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #1D4ED8; /* blue-700 */
+        }
+        .btn-secondary {
+            background-color: #E5E7EB; /* gray-200 */
+            color: #1F2937; /* gray-800 */
+        }
+        .btn-secondary:hover {
+            background-color: #D1D5DB; /* gray-300 */
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); /* shadow-lg */
+            overflow: hidden;
+        }
+        .dropdown-menu {
+            display: none; /* Hidden by default */
+            z-index: 50;
+        }
+        .group:hover .dropdown-menu {
+            display: block;
+        }
+        /* Mega Menu Styles */
+        .mega-menu {
+            display: none;
+            left: 0;
+            right: auto;
+            min-width: 48rem; /* Ajusta según sea necesario */
+        }
+        .group:hover .mega-menu {
+            display: flex;
+        }
+        .mega-menu-column {
+            padding: 1rem;
+            width: 50%; /* Dos columnas */
+        }
+        .mega-menu-column h3 {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #4B5563; /* gray-600 */
+        }
+        .mega-menu-column a {
+            display: block;
+            padding: 0.25rem 0;
+            color: #6B7280; /* gray-500 */
+        }
+        .mega-menu-column a:hover {
+            color: #1F2937; /* gray-800 */
+        }
+        /* Custom CTA button styles for category page */
+        .cta-button {
+            padding: 0.625rem 1.25rem; /* py-2.5 px-5 */
+            border-radius: 0.375rem; /* rounded-md */
+            font-weight: 600; /* semibold */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .primary-cta {
+            background-color: #2563EB; /* blue-600 */
+            color: white;
+            border: 1px solid transparent;
+        }
+        .primary-cta:hover {
+            background-color: #1D4ED8; /* blue-700 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .secondary-cta {
+            background-color: #E5E7EB; /* gray-200 */
+            color: #1F2937; /* gray-800 */
+            border: 1px solid #D1D5DB; /* gray-300 */
+        }
+        .secondary-cta:hover {
+            background-color: #D1D5DB; /* gray-300 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .form-checkbox {
+            color: #2563EB; /* blue-600 */
+        }
+        .form-checkbox:focus {
+            ring: #2563EB; /* blue-600 */
+        }
+
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Barra de Navegación Principal (Copiada de maqueta_homepage_digiplot.html) -->
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <a href="maqueta_homepage_digiplot.html" class="text-2xl font-bold text-blue-600">DigiPlot</a>
+
+                <!-- Enlaces de Navegación (Desktop) -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="maqueta_homepage_digiplot.html" class="text-gray-600 hover:text-blue-600">Inicio</a>
+                    
+                    <div class="relative group">
+                        <button class="text-gray-600 hover:text-blue-600 focus:outline-none py-4">
+                            Productos <i class="fas fa-chevron-down fa-xs"></i>
+                        </button>
+                        <div class="absolute -left-8 mt-0 w-auto bg-white shadow-lg rounded-md py-2 mega-menu">
+                            <div class="mega-menu-column">
+                                <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-3 px-4">Hardware y Componentes</h3>
+                                <a href="category_page_template.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">Computadores</a>
+                                <a href="category_page_template.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">Notebooks</a>
+                                <a href="category_page_template.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">Componentes PC (CPU, Placas Madre, RAM, Tarjetas de Video)</a>
+                                <a href="category_page_template.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">Almacenamiento (SSD, HDD, Externos)</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-3 px-4">Periféricos y Accesorios</h3>
+                                <a href="category_page_template.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">Monitores</a>
+                                <a href="category_page_template.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">Teclados y Mouse</a>
+                                <a href="category_page_template.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">Audio y Video (Audífonos, Parlantes, Webcams)</a>
+                                <a href="category_page_template.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">Impresoras y Scanners</a>
+                                <a href="category_page_template.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">Accesorios (Cables, Hubs, Mochilas)</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="service_page_template.html" class="text-gray-600 hover:text-blue-600">Servicio Técnico</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-600">Blog</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-600">Contacto</a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-4">
+                    <div class="relative hidden md:block mr-4">
+                        <input type="search" placeholder="Buscar productos..." class="form-input py-2 px-3 text-sm min-w-[250px]">
+                        <button class="absolute right-0 top-0 mt-2 mr-2 text-gray-500">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <a href="#" class="text-gray-600 hover:text-blue-600 relative">
+                        <i class="fas fa-shopping-cart fa-lg"></i>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </a>
+                    <a href="#" class="btn btn-primary text-sm">Iniciar Sesión</a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <a href="#" class="text-gray-600 hover:text-blue-600 mr-4 relative">
+                        <i class="fas fa-shopping-cart fa-lg"></i>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </a>
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-blue-600 focus:outline-none">
+                        <i class="fas fa-bars fa-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200">
+                <div class="relative mb-2">
+                    <input type="search" placeholder="Buscar productos..." class="form-input py-2 px-3 text-sm w-full">
+                    <button class="absolute right-0 top-0 mt-2 mr-2 text-gray-500">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <a href="maqueta_homepage_digiplot.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50">Inicio</a>
+                <a href="category_page_template.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50">Productos</a>
+                <a href="#servicios" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50">Servicio Técnico</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50">Blog</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50">Contacto</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium btn btn-primary w-full text-center mt-2">Iniciar Sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal de la Página de Categoría -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Breadcrumbs -->
+        <nav class="text-sm mb-4" aria-label="Breadcrumb">
+            <ol class="list-none p-0 inline-flex space-x-2">
+                <li class="flex items-center">
+                    <a href="maqueta_homepage_digiplot.html" class="text-gray-500 hover:text-blue-600">Inicio</a>
+                </li>
+                <li class="flex items-center">
+                    <span class="text-gray-400 mx-2">/</span>
+                    <a href="category_page_template.html" class="text-gray-500 hover:text-blue-600">Productos</a>
+                </li>
+                <li class="flex items-center">
+                    <span class="text-gray-400 mx-2">/</span>
+                    <span class="text-gray-700 font-semibold">Nombre de Categoría Placeholder</span>
+                </li>
+            </ol>
+        </nav>
+
+        <!-- Título de la Categoría -->
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">Nombre de Categoría Placeholder</h1>
+        <p class="text-gray-600 mb-6">Descripción breve y atractiva de lo que los usuarios encontrarán en esta categoría de productos. Puede tener una o dos frases.</p>
+
+        <!-- Layout Principal (Grid de 2 columnas para Desktop) -->
+        <div class="lg:grid lg:grid-cols-4 lg:gap-8">
+            <!-- Columna de Filtros -->
+            <aside id="filtersAside" class="hidden lg:block lg:col-span-1 mb-8 lg:mb-0">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Filtros</h2>
+                
+                <!-- Filtro de Precio -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-medium text-gray-700 mb-2">Precio</h3>
+                    <div class="flex space-x-2">
+                        <input type="number" placeholder="Min" class="form-input py-2 px-3 border border-gray-300 rounded-md text-sm w-full focus:ring-blue-500 focus:border-blue-500">
+                        <input type="number" placeholder="Max" class="form-input py-2 px-3 border border-gray-300 rounded-md text-sm w-full focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                </div>
+
+                <!-- Filtro de Marcas -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-medium text-gray-700 mb-2">Marca</h3>
+                    <div class="space-y-2">
+                        <label class="flex items-center text-gray-700"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mr-2"> Marca Ejemplo A</label>
+                        <label class="flex items-center text-gray-700"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mr-2"> Marca Ejemplo B</label>
+                        <label class="flex items-center text-gray-700"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mr-2"> Otra Marca</label>
+                    </div>
+                </div>
+
+                <!-- Filtro de Especificaciones (Color) -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-medium text-gray-700 mb-2">Color</h3>
+                    <div class="space-y-2">
+                        <label class="flex items-center text-gray-700"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mr-2"> Negro</label>
+                        <label class="flex items-center text-gray-700"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mr-2"> Blanco</label>
+                        <label class="flex items-center text-gray-700"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mr-2"> Azul</label>
+                    </div>
+                </div>
+
+                <button class="w-full cta-button primary-cta text-sm">Aplicar Filtros</button>
+            </aside>
+            
+            <!-- Botón para Mostrar/Ocultar Filtros en Móvil -->
+            <button id="toggleFiltersButton" class="lg:hidden w-full cta-button secondary-cta text-sm mb-4">
+                <i class="fas fa-filter mr-2"></i> Mostrar Filtros
+            </button>
+
+
+            <!-- Columna de Listado de Productos -->
+            <div class="lg:col-span-3">
+                <!-- Barra de Ordenamiento y Vista -->
+                <div class="flex flex-col sm:flex-row justify-between items-center mb-4">
+                    <span class="text-sm text-gray-600 mb-2 sm:mb-0">Mostrando 1-9 de 27 productos</span>
+                    <select class="form-select py-2 px-3 border border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500 w-full sm:w-auto">
+                        <option selected>Ordenar por: Relevancia</option>
+                        <option>Precio: Menor a Mayor</option>
+                        <option>Precio: Mayor a Menor</option>
+                        <option>Más Vendidos</option>
+                        <option>Mejor Calificados</option>
+                    </select>
+                </div>
+
+                <!-- Cuadrícula de Productos -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <!-- Producto 1 -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 ease-in-out hover:shadow-xl hover:scale-105 flex flex-col">
+                        <a href="#" class="block">
+                            <img src="https://placehold.co/300x200/e2e8f0/333?text=Notebook+Pro+X1" alt="Notebook Pro X1" class="w-full h-40 object-cover">
+                        </a>
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-md font-semibold text-gray-800 mb-1 truncate">Notebook Pro X1 - 16GB RAM, 512GB SSD</h3>
+                            <p class="text-lg font-bold text-blue-600 mb-3">$899.990</p>
+                            <span class="text-xs text-green-500 mb-2">En Stock</span>
+                            <a href="#" class="w-full cta-button secondary-cta text-sm mt-auto text-center">
+                                <i class="fas fa-eye mr-2"></i>Ver Detalles
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Producto 2 -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 ease-in-out hover:shadow-xl hover:scale-105 flex flex-col">
+                        <a href="#" class="block">
+                            <img src="https://placehold.co/300x200/e2e8f0/333?text=Monitor+Gamer+27" alt="Monitor Gamer 27 pulgadas" class="w-full h-40 object-cover">
+                        </a>
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-md font-semibold text-gray-800 mb-1 truncate">Monitor Gamer Curvo 27" QHD 144Hz</h3>
+                            <p class="text-lg font-bold text-blue-600 mb-3">$349.990</p>
+                             <!-- <span class="text-xs text-yellow-500 mb-2">Pocas unidades</span> -->
+                            <a href="#" class="w-full cta-button secondary-cta text-sm mt-auto text-center">
+                                <i class="fas fa-eye mr-2"></i>Ver Detalles
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Producto 3 -->
+                     <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 ease-in-out hover:shadow-xl hover:scale-105 flex flex-col">
+                        <a href="#" class="block">
+                            <img src="https://placehold.co/300x200/e2e8f0/333?text=Teclado+Mecánico+TKL" alt="Teclado Mecánico TKL RGB" class="w-full h-40 object-cover">
+                        </a>
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-md font-semibold text-gray-800 mb-1 truncate">Teclado Mecánico TKL RGB Switches Blue</h3>
+                            <p class="text-lg font-bold text-blue-600 mb-3">$79.990</p>
+                            <span class="text-xs text-green-500 mb-2">En Stock</span>
+                            <a href="#" class="w-full cta-button secondary-cta text-sm mt-auto text-center">
+                                <i class="fas fa-eye mr-2"></i>Ver Detalles
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Producto 4 -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 ease-in-out hover:shadow-xl hover:scale-105 flex flex-col">
+                        <a href="#" class="block">
+                            <img src="https://placehold.co/300x200/e2e8f0/333?text=SSD+NVMe+1TB" alt="SSD NVMe 1TB Gen4" class="w-full h-40 object-cover">
+                        </a>
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-md font-semibold text-gray-800 mb-1 truncate">SSD NVMe 1TB Gen4 - Alta Velocidad</h3>
+                            <p class="text-lg font-bold text-blue-600 mb-3">$119.990</p>
+                             <a href="#" class="w-full cta-button secondary-cta text-sm mt-auto text-center">
+                                <i class="fas fa-eye mr-2"></i>Ver Detalles
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Producto 5 -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 ease-in-out hover:shadow-xl hover:scale-105 flex flex-col">
+                        <a href="#" class="block">
+                            <img src="https://placehold.co/300x200/e2e8f0/333?text=Mouse+Gamer+Pro" alt="Mouse Gamer Pro Wireless" class="w-full h-40 object-cover">
+                        </a>
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-md font-semibold text-gray-800 mb-1 truncate">Mouse Gamer Pro Wireless 16000 DPI</h3>
+                            <p class="text-lg font-bold text-blue-600 mb-3">$59.990</p>
+                            <span class="text-xs text-red-500 mb-2">Agotado</span>
+                            <a href="#" class="w-full cta-button secondary-cta text-sm mt-auto text-center">
+                                <i class="fas fa-eye mr-2"></i>Ver Detalles
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Producto 6 -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 ease-in-out hover:shadow-xl hover:scale-105 flex flex-col">
+                        <a href="#" class="block">
+                            <img src="https://placehold.co/300x200/e2e8f0/333?text=Audífonos+Studio" alt="Audífonos Studio Pro" class="w-full h-40 object-cover">
+                        </a>
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-md font-semibold text-gray-800 mb-1 truncate">Audífonos Over-Ear Studio Pro Hi-Fi</h3>
+                            <p class="text-lg font-bold text-blue-600 mb-3">$129.990</p>
+                            <span class="text-xs text-green-500 mb-2">En Stock</span>
+                            <a href="#" class="w-full cta-button secondary-cta text-sm mt-auto text-center">
+                                <i class="fas fa-eye mr-2"></i>Ver Detalles
+                            </a>
+                        </div>
+                    </div>
+                     <!-- Producto 7 -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 ease-in-out hover:shadow-xl hover:scale-105 flex flex-col">
+                        <a href="#" class="block">
+                            <img src="https://placehold.co/300x200/e2e8f0/333?text=Placa+Madre+Z790" alt="Placa Madre Z790" class="w-full h-40 object-cover">
+                        </a>
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-md font-semibold text-gray-800 mb-1 truncate">Placa Madre Gamer Z790 ATX WiFi</h3>
+                            <p class="text-lg font-bold text-blue-600 mb-3">$249.990</p>
+                            <a href="#" class="w-full cta-button secondary-cta text-sm mt-auto text-center">
+                                <i class="fas fa-eye mr-2"></i>Ver Detalles
+                            </a>
+                        </div>
+                    </div>
+                     <!-- Producto 8 -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 ease-in-out hover:shadow-xl hover:scale-105 flex flex-col">
+                        <a href="#" class="block">
+                            <img src="https://placehold.co/300x200/e2e8f0/333?text=Webcam+4K+Pro" alt="Webcam 4K Pro" class="w-full h-40 object-cover">
+                        </a>
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-md font-semibold text-gray-800 mb-1 truncate">Webcam Profesional 4K con Micrófono</h3>
+                            <p class="text-lg font-bold text-blue-600 mb-3">$89.990</p>
+                            <span class="text-xs text-green-500 mb-2">En Stock</span>
+                            <a href="#" class="w-full cta-button secondary-cta text-sm mt-auto text-center">
+                                <i class="fas fa-eye mr-2"></i>Ver Detalles
+                            </a>
+                        </div>
+                    </div>
+                     <!-- Producto 9 -->
+                    <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 ease-in-out hover:shadow-xl hover:scale-105 flex flex-col">
+                        <a href="#" class="block">
+                            <img src="https://placehold.co/300x200/e2e8f0/333?text=Silla+Gamer+Ergo" alt="Silla Gamer Ergonómica" class="w-full h-40 object-cover">
+                        </a>
+                        <div class="p-4 flex flex-col flex-grow">
+                            <h3 class="text-md font-semibold text-gray-800 mb-1 truncate">Silla Gamer Ergonómica Reclinable Pro</h3>
+                            <p class="text-lg font-bold text-blue-600 mb-3">$179.990</p>
+                            <a href="#" class="w-full cta-button secondary-cta text-sm mt-auto text-center">
+                                <i class="fas fa-eye mr-2"></i>Ver Detalles
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Paginación -->
+                <nav class="mt-8 pt-8 border-t border-gray-200 flex items-center justify-between" aria-label="Paginación">
+                    <div class="flex-1 flex justify-start">
+                        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                            Anterior
+                        </a>
+                    </div>
+                    <div class="hidden md:flex">
+                        <a href="#" class="bg-blue-500 border-blue-500 text-white relative inline-flex items-center px-4 py-2 border text-sm font-medium rounded-md z-10">1</a>
+                        <a href="#" class="border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium rounded-md">2</a>
+                        <a href="#" class="border-gray-300 text-gray-500 hover:bg-gray-50 hidden sm:inline-flex relative items-center px-4 py-2 border text-sm font-medium rounded-md">3</a>
+                        <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">...</span>
+                        <a href="#" class="border-gray-300 text-gray-500 hover:bg-gray-50 hidden sm:inline-flex relative items-center px-4 py-2 border text-sm font-medium rounded-md">8</a>
+                    </div>
+                    <div class="flex-1 flex justify-end">
+                        <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                            Siguiente
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (Copiado de maqueta_homepage_digiplot.html) -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">DigiPlot</h3>
+                    <p class="text-gray-400 text-sm">Tu tienda de confianza para productos tecnológicos y servicio técnico especializado en Chile.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="maqueta_homepage_digiplot.html#about" class="text-gray-300 hover:text-white">Sobre Nosotros</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Preguntas Frecuentes (FAQ)</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Blog DigiPlot</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Términos y Condiciones</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Política de Privacidad</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Políticas de Envío</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Políticas de Devoluciones</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Políticas de Garantía</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contacto</h3>
+                    <p class="text-gray-400 text-sm">Av. Ejemplo 123, Oficina 45, Santiago</p>
+                    <p class="text-gray-400 text-sm">contacto@digiplot.cl</p>
+                    <p class="text-gray-400 text-sm">+56 9 1234 5678</p>
+                    <div class="flex space-x-4 mt-4 mb-5">
+                        <a href="#" class="text-gray-400 hover:text-white" title="Facebook"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white" title="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white" title="Twitter"><i class="fab fa-twitter fa-lg"></i></a>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold mb-3 mt-2">Compra Segura</h3>
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center text-green-400" title="SSL Certificado">
+                            <i class="fas fa-shield-alt fa-2x mr-2"></i>
+                            <span class="text-sm">SSL</span>
+                        </div>
+                        <div class="flex items-center text-green-400" title="Pago Seguro">
+                            <i class="fas fa-lock fa-2x mr-2"></i>
+                            <span class="text-sm">Pago Seguro</span>
+                        </div>
+                    </div>
+                </div>
+                 <div>
+                    <h3 class="text-xl font-semibold mb-4">Métodos de Pago</h3>
+                    <div class="flex space-x-3 mt-2">
+                        <i class="fab fa-cc-visa fa-2x text-gray-300 hover:text-white" title="Visa"></i>
+                        <i class="fab fa-cc-mastercard fa-2x text-gray-300 hover:text-white" title="Mastercard"></i>
+                        <i class="fab fa-cc-paypal fa-2x text-gray-300 hover:text-white" title="PayPal"></i>
+                        <i class="fab fa-cc-amex fa-2x text-gray-300 hover:text-white" title="American Express"></i>
+                         <span class="text-gray-300 hover:text-white text-lg" title="Webpay">Webpay</span>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-2">Entre otros medios de pago locales.</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-sm text-gray-500">&copy; 2023 DigiPlot. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script para el menú móvil (Copiado de maqueta_homepage_digiplot.html)
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const filtersAside = document.getElementById('filtersAside');
+        const toggleFiltersButton = document.getElementById('toggleFiltersButton');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuButton.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // Script para cerrar dropdowns si se hace clic fuera
+        document.addEventListener('click', function(event) {
+            const isClickInsideGroup = event.target.closest('.group');
+            if (!isClickInsideGroup && !mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+                 if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.querySelector('i').classList.remove('fa-times');
+                    mobileMenuButton.querySelector('i').classList.add('fa-bars');
+                }
+            }
+            
+            document.querySelectorAll('.group > button').forEach(button => {
+                const menu = button.nextElementSibling;
+                if (menu && (menu.classList.contains('dropdown-menu') || menu.classList.contains('mega-menu'))) {
+                    if (!button.contains(event.target) && !menu.contains(event.target)) {
+                        menu.style.display = 'none';
+                    }
+                }
+            });
+        });
+
+         document.querySelectorAll('.group > button').forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.stopPropagation();
+                let menu = this.nextElementSibling;
+                if (menu) {
+                    let isDisplayed = menu.style.display === 'block' || menu.style.display === 'flex';
+                    // Cierra todos los otros menús abiertos antes de abrir/cerrar el actual
+                    document.querySelectorAll('.dropdown-menu, .mega-menu').forEach(m => {
+                        if (m !== menu) {
+                            m.style.display = 'none';
+                        }
+                    });
+                    menu.style.display = isDisplayed ? 'none' : (menu.classList.contains('mega-menu') ? 'flex' : 'block');
+                }
+            });
+        });
+
+        // Toggle para filtros en móvil
+        if (toggleFiltersButton && filtersAside) {
+            toggleFiltersButton.addEventListener('click', () => {
+                filtersAside.classList.toggle('hidden');
+                const icon = toggleFiltersButton.querySelector('i');
+                const text = toggleFiltersButton.childNodes[2]; // El nodo de texto después del icono
+
+                if (filtersAside.classList.contains('hidden')) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-filter');
+                    if(text) text.textContent = ' Mostrar Filtros';
+                } else {
+                    icon.classList.remove('fa-filter');
+                    icon.classList.add('fa-times');
+                     if(text) text.textContent = ' Ocultar Filtros';
+                }
+            });
+        }
+
+    </script>
+
+</body>
+</html>

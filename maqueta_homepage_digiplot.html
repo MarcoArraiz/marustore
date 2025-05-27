@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiPlot - Inicio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/random/1600x900/?technology,computer');
+            background-size: cover;
+            background-position: center;
+        }
+        .form-input, .form-select {
+            border-radius: 0.375rem; /* rounded-md */
+            border-width: 1px;
+            border-color: #D1D5DB; /* gray-300 */
+            padding: 0.5rem 0.75rem;
+        }
+        .form-input:focus, .form-select:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            border-color: #2563EB; /* blue-600 */
+            box-shadow: 0 0 0 2px #BFDBFE; /* ring-2 ring-blue-300 */
+        }
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem; /* rounded-md */
+            font-weight: 600; /* semibold */
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary {
+            background-color: #2563EB; /* blue-600 */
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #1D4ED8; /* blue-700 */
+        }
+        .btn-secondary {
+            background-color: #E5E7EB; /* gray-200 */
+            color: #1F2937; /* gray-800 */
+        }
+        .btn-secondary:hover {
+            background-color: #D1D5DB; /* gray-300 */
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); /* shadow-lg */
+            overflow: hidden;
+        }
+        .dropdown-menu {
+            display: none; /* Hidden by default */
+            z-index: 50;
+        }
+        .group:hover .dropdown-menu {
+            display: block;
+        }
+        /* Mega Menu Styles */
+        .mega-menu {
+            display: none;
+            left: 0;
+            right: auto;
+            min-width: 48rem; /* Ajusta según sea necesario */
+        }
+        .group:hover .mega-menu {
+            display: flex;
+        }
+        .mega-menu-column {
+            padding: 1rem;
+            width: 50%; /* Dos columnas */
+        }
+        .mega-menu-column h3 {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #4B5563; /* gray-600 */
+        }
+        .mega-menu-column a {
+            display: block;
+            padding: 0.25rem 0;
+            color: #6B7280; /* gray-500 */
+        }
+        .mega-menu-column a:hover {
+            color: #1F2937; /* gray-800 */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Barra de Navegación Principal -->
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <a href="#" class="text-2xl font-bold text-blue-600">DigiPlot</a>
+
+                <!-- Enlaces de Navegación (Desktop) -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-blue-600">Inicio</a>
+                    
+                    <!-- Menú Desplegable Productos -->
+                    <div class="relative group">
+                        <button class="text-gray-600 hover:text-blue-600 focus:outline-none py-4">
+                            Productos <i class="fas fa-chevron-down fa-xs"></i>
+                        </button>
+                        <!-- Mega Menú -->
+                        <div class="absolute -left-8 mt-0 w-auto bg-white shadow-lg rounded-md py-2 mega-menu">
+                            <div class="mega-menu-column">
+                                <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-3 px-4">Hardware y Componentes</h3>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">Computadores</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">Notebooks</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">Componentes PC (CPU, Placas Madre, RAM, Tarjetas de Video)</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">Almacenamiento (SSD, HDD, Externos)</a>
+                            </div>
+                            <div class="mega-menu-column">
+                                <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-3 px-4">Periféricos y Accesorios</h3>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">Monitores</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">Teclados y Mouse</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">Audio y Video (Audífonos, Parlantes, Webcams)</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">Impresoras y Scanners</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">Accesorios (Cables, Hubs, Mochilas)</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="service_page_template.html" class="text-gray-600 hover:text-blue-600">Servicio Técnico</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-600">Blog</a>
+                    <a href="#" class="text-gray-600 hover:text-blue-600">Contacto</a>
+                </div>
+
+                <!-- Barra de Búsqueda y Carrito (Desktop) -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <div class="relative hidden md:block mr-4">
+                        <input type="search" placeholder="Buscar productos..." class="form-input py-2 px-3 text-sm min-w-[250px]">
+                        <button class="absolute right-0 top-0 mt-2 mr-2 text-gray-500">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <a href="#" class="text-gray-600 hover:text-blue-600 relative">
+                        <i class="fas fa-shopping-cart fa-lg"></i>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </a>
+                    <a href="#" class="btn btn-primary text-sm">Iniciar Sesión</a>
+                </div>
+
+                <!-- Botón de Menú Móvil -->
+                <div class="md:hidden flex items-center">
+                    <a href="#" class="text-gray-600 hover:text-blue-600 mr-4 relative">
+                        <i class="fas fa-shopping-cart fa-lg"></i>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </a>
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-blue-600 focus:outline-none">
+                        <i class="fas fa-bars fa-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Móvil -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200">
+                <div class="relative mb-2">
+                    <input type="search" placeholder="Buscar productos..." class="form-input py-2 px-3 text-sm w-full">
+                    <button class="absolute right-0 top-0 mt-2 mr-2 text-gray-500">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <a href="maqueta_homepage_digiplot.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50">Inicio</a>
+                <!-- Enlace Productos Móvil - Puede llevar a una página de categorías o tener un desplegable futuro -->
+                <a href="category_page_template.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50">Productos</a>
+                <a href="service_page_template.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50">Servicio Técnico</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50">Blog</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50">Contacto</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium btn btn-primary w-full text-center mt-2">Iniciar Sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <header class="hero-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Tu Aliado en Tecnología en Chile</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Encuentra los mejores productos, accesorios y recibe soporte técnico experto para todas tus necesidades computacionales.</p>
+            <a href="#" class="btn btn-primary text-lg px-8 py-3">Explorar Productos</a>
+            <a href="#" class="btn btn-secondary text-lg px-8 py-3 ml-4">Servicio Técnico</a>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Sección Destacados -->
+        <section>
+            <h2 class="text-3xl font-bold text-center mb-8">Productos Destacados</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <!-- Producto 1: Notebook Gamer Avanzado -->
+                <div class="card flex flex-col">
+                    <img src="https://source.unsplash.com/random/400x300/?laptop,gaming" alt="Notebook Gamer Avanzado" class="w-full h-48 object-cover">
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="text-lg font-semibold mb-1 text-gray-800">Notebook Gamer Avanzado</h3>
+                        <p class="text-gray-600 text-sm mb-3 flex-grow">Descripción concisa resaltando su potente tarjeta gráfica RTX 4070 y procesador Core i7, ideal para gaming exigente y creación de contenido.</p>
+                        
+                        <div class="mb-3 mt-auto">
+                            <p class="text-sm text-gray-400 line-through">$1.350.000</p>
+                            <p class="text-xl font-bold text-red-600">Oferta: $1.250.000</p>
+                            <span class="text-xs text-gray-500">IVA incluido</span>
+                        </div>
+                        
+                        <div class="text-sm text-green-500 mb-3 flex items-center">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            <span>En Stock</span>
+                        </div>
+                        
+                        <a href="#" class="w-full btn btn-primary text-sm mt-auto"><i class="fas fa-cart-plus mr-2"></i>Agregar al Carrito</a>
+                    </div>
+                </div>
+
+                <!-- Producto 2: Monitor Curvo Ultrawide 34" -->
+                <div class="card flex flex-col">
+                    <img src="https://source.unsplash.com/random/400x300/?monitor,office" alt="Monitor Curvo Ultrawide 34 pulgadas" class="w-full h-48 object-cover">
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="text-lg font-semibold mb-1 text-gray-800">Monitor Curvo Ultrawide 34"</h3>
+                        <p class="text-gray-600 text-sm mb-3 flex-grow">Ideal para multitarea y una experiencia visual inmersiva en juegos y trabajo.</p>
+                        
+                        <div class="mb-3 mt-auto">
+                            <span class="text-gray-500 text-sm">Precio IVA incluido:</span>
+                            <p class="text-xl font-bold text-blue-600">$680.000</p>
+                        </div>
+
+                        <div class="text-sm text-green-500 mb-3 flex items-center">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            <span>En Stock</span>
+                        </div>
+                        
+                        <a href="#" class="w-full btn btn-primary text-sm mt-auto"><i class="fas fa-cart-plus mr-2"></i>Agregar al Carrito</a>
+                    </div>
+                </div>
+
+                <!-- Producto 3: Teclado Mecánico RGB -->
+                <div class="card flex flex-col">
+                    <img src="https://source.unsplash.com/random/400x300/?keyboard,rgb" alt="Teclado Mecánico RGB con switches personalizables" class="w-full h-48 object-cover">
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="text-lg font-semibold mb-1 text-gray-800">Teclado Mecánico RGB</h3>
+                        <p class="text-gray-600 text-sm mb-3 flex-grow">Switches táctiles, iluminación RGB personalizable y construcción duradera para gamers y profesionales.</p>
+                        
+                        <div class="mb-3 mt-auto">
+                            <p class="text-sm text-gray-400 line-through">$115.000</p>
+                            <p class="text-xl font-bold text-red-600">Oferta: $95.000</p>
+                            <span class="text-xs text-gray-500">IVA incluido</span>
+                        </div>
+
+                        <div class="text-sm text-yellow-600 mb-3 flex items-center">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            <span>Consultar Stock</span>
+                        </div>
+                        
+                        <a href="#" class="w-full btn btn-primary text-sm mt-auto"><i class="fas fa-cart-plus mr-2"></i>Agregar al Carrito</a>
+                    </div>
+                </div>
+
+                <!-- Producto 4: SSD NVMe 1TB Gen4 -->
+                <div class="card flex flex-col">
+                    <img src="https://source.unsplash.com/random/400x300/?ssd,component" alt="Unidad SSD NVMe de 1TB Gen4 de alta velocidad" class="w-full h-48 object-cover">
+                    <div class="p-4 flex flex-col flex-grow">
+                        <h3 class="text-lg font-semibold mb-1 text-gray-800">SSD NVMe 1TB Gen4</h3>
+                        <p class="text-gray-600 text-sm mb-3 flex-grow">Almacenamiento ultrarrápido para tiempos de carga mínimos en aplicaciones y juegos.</p>
+                        
+                        <div class="mb-3 mt-auto">
+                             <span class="text-gray-500 text-sm">Precio IVA incluido:</span>
+                            <p class="text-xl font-bold text-blue-600">$120.000</p>
+                        </div>
+
+                        <div class="text-sm text-green-500 mb-3 flex items-center">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            <span>En Stock</span>
+                        </div>
+                        
+                        <a href="#" class="w-full btn btn-primary text-sm mt-auto"><i class="fas fa-cart-plus mr-2"></i>Agregar al Carrito</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Categorías -->
+        <section class="mt-16 py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">Explora Nuestras Categorías</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+                    
+                    <!-- Tarjeta Categoría: Notebooks -->
+                    <a href="#" class="category-card bg-gray-50 p-4 text-center shadow hover:shadow-lg rounded-lg transition-shadow duration-300 flex flex-col items-center justify-start">
+                        <img src="https://placehold.co/100x80/E0E7FF/4F46E5?text=Notebook" alt="Imagen de Notebooks" class="h-20 w-auto object-contain mb-4">
+                        <h3 class="font-semibold text-gray-800">Notebooks</h3>
+                    </a>
+
+                    <!-- Tarjeta Categoría: Componentes PC -->
+                    <a href="#" class="category-card bg-gray-50 p-4 text-center shadow hover:shadow-lg rounded-lg transition-shadow duration-300 flex flex-col items-center justify-start">
+                        <img src="https://placehold.co/100x80/E0E7FF/4F46E5?text=Componente" alt="Imagen de Componentes PC" class="h-20 w-auto object-contain mb-4">
+                        <h3 class="font-semibold text-gray-800">Componentes PC</h3>
+                    </a>
+
+                    <!-- Tarjeta Categoría: Periféricos -->
+                    <a href="#" class="category-card bg-gray-50 p-4 text-center shadow hover:shadow-lg rounded-lg transition-shadow duration-300 flex flex-col items-center justify-start">
+                        <img src="https://placehold.co/100x80/E0E7FF/4F46E5?text=Periferico" alt="Imagen de Periféricos" class="h-20 w-auto object-contain mb-4">
+                        <h3 class="font-semibold text-gray-800">Periféricos</h3>
+                    </a>
+
+                    <!-- Tarjeta Categoría: Impresoras -->
+                    <a href="#" class="category-card bg-gray-50 p-4 text-center shadow hover:shadow-lg rounded-lg transition-shadow duration-300 flex flex-col items-center justify-start">
+                        <img src="https://placehold.co/100x80/E0E7FF/4F46E5?text=Impresora" alt="Imagen de Impresoras" class="h-20 w-auto object-contain mb-4">
+                        <h3 class="font-semibold text-gray-800">Impresoras</h3>
+                    </a>
+
+                    <!-- Tarjeta Categoría: Audio y Video -->
+                    <a href="#" class="category-card bg-gray-50 p-4 text-center shadow hover:shadow-lg rounded-lg transition-shadow duration-300 flex flex-col items-center justify-start">
+                        <img src="https://placehold.co/100x80/E0E7FF/4F46E5?text=AudioVideo" alt="Imagen de Audio y Video" class="h-20 w-auto object-contain mb-4">
+                        <h3 class="font-semibold text-gray-800">Audio y Video</h3>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Servicios -->
+        <section id="servicios" class="mt-16 bg-white py-12 md:py-20">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center md:space-x-12">
+                    <!-- Imagen (Izquierda) -->
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <img src="https://placehold.co/500x350/E0E7FF/4F46E5?text=Servicio+Técnico+DigiPlot" alt="Equipo técnico de DigiPlot trabajando en la reparación de un computador" class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <!-- Contenido (Derecha) -->
+                    <div class="md:w-1/2 text-center md:text-left">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Nuestros Servicios de Soporte Técnico</h2>
+                        <p class="text-lg text-gray-700 mb-6">
+                            Expertos en soluciones TI: Diagnóstico preciso y reparación eficiente para tus computadores, notebooks y más. Confía en nuestro equipo para optimizar tu tecnología y mantenerla funcionando sin problemas.
+                        </p>
+                        <ul class="space-y-3 text-gray-700 mb-8 text-left">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                <span>Reparación de Hardware y Software especializado.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                <span>Mantenimiento Preventivo y Optimización de Rendimiento.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                <span>Instalación y Actualización de Componentes.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                <span>Asesoría Tecnológica Personalizada para tus necesidades.</span>
+                            </li>
+                             <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                                <span>Recuperación de Datos (Servicios Básicos).</span>
+                            </li>
+                        </ul>
+                        <a href="#contacto-servicio" class="btn btn-primary text-lg px-8 py-3 inline-block">Solicitar Servicio Técnico</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Testimonios -->
+        <section class="py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Lo que Dicen Nuestros Clientes</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Testimonio 1 -->
+                    <div class="p-6 bg-gray-50 rounded-lg shadow-lg flex flex-col">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-blue-500 text-white rounded-full p-2 mr-3">
+                                <i class="fas fa-user fa-lg"></i>
+                            </span>
+                            <div>
+                                <p class="font-semibold text-gray-800">Ana Martínez</p>
+                                <div class="flex text-yellow-400 mt-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic mb-4 flex-grow">"¡Servicio técnico impecable! Mi notebook funciona mejor que nuevo. Rápidos, profesionales y muy amables. Totalmente recomendados."</p>
+                        <p class="text-sm text-gray-500 text-right">- Cliente Satisfecha</p>
+                    </div>
+
+                    <!-- Testimonio 2 -->
+                    <div class="p-6 bg-gray-50 rounded-lg shadow-lg flex flex-col">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-blue-500 text-white rounded-full p-2 mr-3">
+                                <i class="fas fa-user fa-lg"></i>
+                            </span>
+                            <div>
+                                <p class="font-semibold text-gray-800">Carlos Silva</p>
+                                <div class="flex text-yellow-400 mt-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic mb-4 flex-grow">"Compré varios componentes para mi PC y todo llegó perfecto. La atención al cliente fue excelente, me ayudaron a elegir lo mejor para mi presupuesto."</p>
+                        <p class="text-sm text-gray-500 text-right">- Comprador Verificado</p>
+                    </div>
+
+                    <!-- Testimonio 3 -->
+                    <div class="p-6 bg-gray-50 rounded-lg shadow-lg flex flex-col">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-blue-500 text-white rounded-full p-2 mr-3">
+                                <i class="fas fa-user fa-lg"></i>
+                            </span>
+                            <div>
+                                <p class="font-semibold text-gray-800">Laura Vargas</p>
+                                <div class="flex text-yellow-400 mt-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i> <!-- Estrella vacía para 4 estrellas -->
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic mb-4 flex-grow">"El mega menú de productos es muy fácil de navegar y encontré todo lo que necesitaba. La variedad de periféricos es genial. Buena experiencia de compra."</p>
+                        <p class="text-sm text-gray-500 text-right">- Usuaria Frecuente</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">DigiPlot</h3>
+                    <p class="text-gray-400 text-sm">Tu tienda de confianza para productos tecnológicos y servicio técnico especializado en Chile.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Sobre Nosotros</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Preguntas Frecuentes (FAQ)</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Blog DigiPlot</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Términos y Condiciones</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Política de Privacidad</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Políticas de Envío</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Políticas de Devoluciones</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Políticas de Garantía</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contacto</h3>
+                    <p class="text-gray-400 text-sm">Av. Ejemplo 123, Oficina 45, Santiago</p>
+                    <p class="text-gray-400 text-sm">contacto@digiplot.cl</p>
+                    <p class="text-gray-400 text-sm">+56 9 1234 5678</p>
+                    <div class="flex space-x-4 mt-4 mb-5">
+                        <a href="#" class="text-gray-400 hover:text-white" title="Facebook"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white" title="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white" title="Twitter"><i class="fab fa-twitter fa-lg"></i></a>
+                    </div>
+                    
+                    <h3 class="text-lg font-semibold mb-3 mt-2">Compra Segura</h3>
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center text-green-400" title="SSL Certificado">
+                            <i class="fas fa-shield-alt fa-2x mr-2"></i>
+                            <span class="text-sm">SSL</span>
+                        </div>
+                        <div class="flex items-center text-green-400" title="Pago Seguro">
+                            <i class="fas fa-lock fa-2x mr-2"></i>
+                            <span class="text-sm">Pago Seguro</span>
+                        </div>
+                    </div>
+                </div>
+                 <div>
+                    <h3 class="text-xl font-semibold mb-4">Métodos de Pago</h3>
+                    <div class="flex space-x-3 mt-2">
+                        <i class="fab fa-cc-visa fa-2x text-gray-300 hover:text-white" title="Visa"></i>
+                        <i class="fab fa-cc-mastercard fa-2x text-gray-300 hover:text-white" title="Mastercard"></i>
+                        <i class="fab fa-cc-paypal fa-2x text-gray-300 hover:text-white" title="PayPal"></i>
+                        <i class="fab fa-cc-amex fa-2x text-gray-300 hover:text-white" title="American Express"></i>
+                        <!-- Para Webpay, una opción es usar un texto o un SVG/img si se tiene -->
+                         <span class="text-gray-300 hover:text-white text-lg" title="Webpay">Webpay</span>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-2">Entre otros medios de pago locales.</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-sm text-gray-500">&copy; 2023 DigiPlot. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script para el menú móvil
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuButton.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // Script para cerrar dropdowns si se hace clic fuera (opcional, pero buena UX)
+        document.addEventListener('click', function(event) {
+            const isClickInsideGroup = event.target.closest('.group');
+            if (!isClickInsideGroup) {
+                document.querySelectorAll('.dropdown-menu, .mega-menu').forEach(function(menu) {
+                    menu.style.display = 'none';
+                });
+            }
+        });
+        // Prevenir que el clic en el botón de productos cierre el menú inmediatamente
+         document.querySelectorAll('.group > button').forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.stopPropagation();
+                let menu = this.nextElementSibling;
+                if (menu) {
+                    let isDisplayed = menu.style.display === 'block' || menu.style.display === 'flex';
+                    document.querySelectorAll('.dropdown-menu, .mega-menu').forEach(m => m.style.display = 'none'); // Cierra otros
+                    menu.style.display = isDisplayed ? 'none' : (menu.classList.contains('mega-menu') ? 'flex' : 'block');
+                }
+            });
+        });
+
+    </script>
+
+</body>
+</html>
